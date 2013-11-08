@@ -1,11 +1,11 @@
-Object = LCS.class({})
+Object = mc.class("Object")
 
 --- Initialize object.
--- @param string
-function Object:init()
+function Object:initialize()
 end
 
 --- @return Are the values equal?
+-- @param Objec to compare.
 function Object:Equals(object)
 	return ( self == object )
 end

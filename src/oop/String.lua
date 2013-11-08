@@ -1,8 +1,8 @@
-String = Object:extends()
+String = mc.class("String", Object)
 
 --- Initialize object.
 -- @param string
-function String:init(str)
+function String:initialize(str)
 	self.str = str
 end
 

@@ -1,8 +1,8 @@
-Integer = Object:extends()
+Integer = mc.class("Integer", Object)
 
 --- Initialize object.
--- @param integer
-function Integer:init(int)
+-- @param number
+function Integer:initialize(int)
 	self.int = int
 end
 

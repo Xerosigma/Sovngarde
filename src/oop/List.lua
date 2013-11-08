@@ -1,7 +1,7 @@
-List = Object:extends()
+List = mc.class("List", Object)
 
 --- Initialize object.
-function List:init()
+function List:initialize()
 	self.members = {}
 	self.count = 0
 	self.EMPTY = "{[-|empty|-]}"

@@ -1,9 +1,11 @@
-Debug = Object:extends()
+Debug = mc.class("Debug", Object)
 
 --- Initialize object.
-function Debug:init(debug)
+function Debug:initialize(debug)
 	self.debug = debug
 	self.logs = List()
+
+	if(d == nil) then d = self.Print end
 end
 
 --- Logs the message, outputs if debug is enabled.
@@ -13,13 +15,18 @@ function Debug:Log(message)
 	if (self.debug) then d("Log: " .. message) end
 end
 
---- Logs the message, outputs if debug is enabled.
+--- Writes massage to log file.
 function Debug:Write(file, message)
 	local file = io.open(file, "w")
 	if file ~= nil then
 		file:write(message)
 		file:close()
 	end
+end
+
+--- Writes massage to log file.
+function Debug:Print(message)
+	print("Log: " .. message)
 end
 
 --- @return The string representation of the object.
