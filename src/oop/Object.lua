@@ -4,7 +4,7 @@ Object = mc.class("Object")
 function Object:initialize()
 end
 
---- @return Are the values equal?
+--- @return Are the objects equal?
 -- @param Objec to compare.
 function Object:Equals(object)
 	return ( self == object )
@@ -12,5 +12,5 @@ end
 
 --- @return The string representation of the object.
 function Object:ToString()
-	return self
+	return self.class.name
 end

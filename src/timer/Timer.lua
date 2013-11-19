@@ -1,9 +1,9 @@
 Timer = mc.class("Timer", Object)
 
 --- Initialize variables.
-function Timer:init()
-	self.startTime = 0
-	self.endTime = 0
+function Timer:initialize()
+	self.startTime = -1
+	self.endTime = -1
 	self.isTimerActive = false
 end
 
@@ -21,8 +21,29 @@ function Timer:Stop(endTime)
 	self.isTimerActive = false
 end
 
+--- @return Hours passed. (number)
+function Timer:HoursPassed()
+	if(self.isTimerActive) then
+		debug:Warning("Timer is still active. Stop before calling.")
+	end
+	local secondsPassed = self.endTime - self.startTime
+	return math.floor(secondsPassed / 3600)
+end
+
+--- @return Minutes passed. (number)
+function Timer:MinutesPassed()
+	if(self.isTimerActive) then
+		debug:Warning("Timer is still active. Stop before calling.")
+	end
+	local secondsPassed = self.endTime - self.startTime
+	return math.floor(secondsPassed / 60)
+end
+
 --- @return Seconds passed.
 function Timer:SecondsPassed()
+	if(self.isTimerActive) then
+		debug:Warning("Timer is still active. Stop before calling.")
+	end
 	return (self.endTime - self.startTime) / 1000
 end
 
